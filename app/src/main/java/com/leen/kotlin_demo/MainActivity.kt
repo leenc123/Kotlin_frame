@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.cysion.targetfun._addTextChangedListener
 import com.github.kittinunf.fuel.Fuel
 import com.leen.kotlin_demo.http.HttpUser
 import com.leen.kotlin_library.base.BaseAty
@@ -29,7 +30,11 @@ class MainActivity : BaseAty() {
     }
 
     override fun initData() {
+        editText._addTextChangedListener {
+            _afterTextChanged {
 
+            }
+        }
     }
 
     companion object {

@@ -53,6 +53,8 @@ dependencies {
     api 'com.lxj:xpopup:1.7.9'
 //for androidx.
     api 'com.lxj:xpopup:1.7.9-x'
+    //第三方Lib中的多函数接口
+    api "com.cysion:targetfun:1.1.0"
 
 }
 repositories {
