@@ -32,11 +32,13 @@ class FragmentAty:BaseAty(){
     val FIRST = 0
     val SECOND = 1
     val THIRD = 2
+    var homefgt:HomeFgt?=null
     override fun getLayoutResId(): Int = R.layout.aty_fragment
 
     override fun initView() {
         if (findFragment(HomeFgt::class.java)==null){
-            mFragments[FIRST]=HomeFgt.newInstance()
+            homefgt=HomeFgt.newInstance()
+            mFragments[FIRST]=homefgt
             mFragments[SECOND]=FindFgt.newInstance()
             mFragments[THIRD]=MineFgt.newInstance()
 
@@ -52,7 +54,9 @@ class FragmentAty:BaseAty(){
     }
 
     override fun initData() {
-
+        homefgt!!.setOnChangeListener { s, s1 ->
+            showToast(s1)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

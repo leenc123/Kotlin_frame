@@ -30,5 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="自定义popupwindow" />
+    <Button
+            android:id="@+id/btn_bb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="闭包代替回调" />
 
 </LinearLayout>

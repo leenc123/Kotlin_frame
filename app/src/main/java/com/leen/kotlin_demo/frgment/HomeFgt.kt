@@ -45,6 +45,9 @@ class HomeFgt :BaseFgt() {
                         .asCustom(CustomPopup(context!!))
                         .show()
             }
+            R.id.btn_bb->{
+                changeListener("哈哈哈","呵呵呵")
+            }
         }
     }
 
@@ -69,6 +72,7 @@ class HomeFgt :BaseFgt() {
         }
         btn_done_dialog.setOnClickListener(this)
         btn_base_dialog.setOnClickListener(this)
+        btn_bb.setOnClickListener(this)
         L.e("home")
     }
     class CustomPopup(context: Context) : CenterPopupView(context) {
@@ -97,5 +101,8 @@ class HomeFgt :BaseFgt() {
         //            return 1200;
         //        }
     }
-
+    fun setOnChangeListener(e:(String,String)->Unit){
+        this.changeListener=e
+    }
+    var  changeListener:(String,String)->Unit={a,b->Unit}
 }
