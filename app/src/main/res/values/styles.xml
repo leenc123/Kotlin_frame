@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+         //隐藏状态栏
+        <item name="windowActionBar">false</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowBackground">@color/colorWhite</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="SplashTheme" parent="android:Theme.NoTitleBar.Fullscreen">
+
+        <!-- 闪屏背景，可用图片 -->
+        <item name="android:windowBackground">@drawable/background_splash</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
+    </style>
+</resources>

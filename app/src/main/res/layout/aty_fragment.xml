@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <FrameLayout
+        android:layout_above="@+id/lin_bottom"
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+    <LinearLayout
+        android:id="@+id/lin_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_main"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:padding="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主页" />
+        <TextView
+            android:id="@+id/tv_find"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:padding="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发现" />
+        <TextView
+            android:id="@+id/tv_mine"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:padding="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的" />
+    </LinearLayout>
+</RelativeLayout>
