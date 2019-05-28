@@ -16,9 +16,25 @@ import com.leen.kotlin_library.util.L
  */
 class HttpUser private constructor(){
     companion object {
-        val instance:HttpUser by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED){
-            HttpUser()
-        }
+        /**
+         * 单例
+         */
+        @Volatile
+        private var INSTANCE:HttpUser?=null
+        /**
+         * 获取单例
+         */
+        val instance:HttpUser
+            get() {
+                if (INSTANCE==null){
+                    synchronized(HttpUser::class.java){
+                        if (INSTANCE==null){
+                            INSTANCE= HttpUser()
+                        }
+                    }
+                }
+                return INSTANCE!!
+            }
     }
 
     /**
