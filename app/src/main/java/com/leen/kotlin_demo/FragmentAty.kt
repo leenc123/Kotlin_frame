@@ -25,6 +25,7 @@ import me.yokeyword.fragmentation.SupportFragment
  */
 class FragmentAty:BaseAty(){
     override fun onClick(v: View?) {
+
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -41,7 +42,6 @@ class FragmentAty:BaseAty(){
             mFragments[FIRST]=homefgt
             mFragments[SECOND]=FindFgt.newInstance()
             mFragments[THIRD]=MineFgt.newInstance()
-
             loadMultipleRootFragment(R.id.fragment, FIRST,
                 mFragments[FIRST],
                 mFragments[SECOND],

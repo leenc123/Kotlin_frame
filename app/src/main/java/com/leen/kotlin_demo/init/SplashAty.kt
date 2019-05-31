@@ -1,14 +1,13 @@
-package com.leen.kotlin_demo
+package com.leen.kotlin_demo.init
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.view.WindowManager
-import com.github.kittinunf.fuel.core.FuelManager
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ktx.immersionBar
+import com.leen.kotlin_demo.MainActivity
+import com.leen.kotlin_demo.R
 import com.leen.kotlin_demo.config.Config
 import com.leen.kotlin_library.httpTools.FuelTestHelper
 import com.leen.kotlin_library.util.AppManager

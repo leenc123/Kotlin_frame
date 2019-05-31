@@ -2,7 +2,9 @@ package com.leen.kotlin_library.base
 
 import android.app.Dialog
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +17,14 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.gyf.immersionbar.ktx.immersionBar
 import com.leen.kotlin_library.R
+import com.leen.kotlin_library.helper.PermissionListener
 import com.leen.kotlin_library.httpTools.HttpListener
 import com.leen.kotlin_library.util.L
 import com.leen.kotlin_library.util.StringUtils
 import me.yokeyword.fragmentation.SupportFragment
+import me.yokeyword.fragmentation.SwipeBackLayout
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment
+import java.util.ArrayList
 
 
 /**
@@ -28,12 +34,12 @@ import me.yokeyword.fragmentation.SupportFragment
  * 描述：Fragment基类
  *
  */
-abstract class BaseFgt :SupportFragment(), View.OnClickListener, HttpListener {
+abstract class BaseFgt :SwipeBackFragment(), View.OnClickListener, HttpListener {
+    private var mListener: PermissionListener? = null
     var loadingDialog:Dialog?=null
     var tipTextView:TextView?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
-
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
@@ -104,8 +110,8 @@ abstract class BaseFgt :SupportFragment(), View.OnClickListener, HttpListener {
         val loadingDialog = Dialog(context, R.style.loading_dialog)// 创建自定义样式dialog
         loadingDialog.setCancelable(false)// 不可以用“返回键”取消
         loadingDialog.setContentView(layout, LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.FILL_PARENT,
-            LinearLayout.LayoutParams.FILL_PARENT))// 设置布局
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.MATCH_PARENT))// 设置布局
         return loadingDialog
     }
     fun showLoadingDialog(msg:String){
@@ -118,5 +124,54 @@ abstract class BaseFgt :SupportFragment(), View.OnClickListener, HttpListener {
         loadingDialog!!.dismiss()
 
     }
+    /**
+     * 检查和处理运行时权限，并将用户授权的结果通过PermissionListener进行回调。
+     *
+     * @param permissions
+     * 要检查和处理的运行时权限数组
+     * @param listener
+     * 用于接收授权结果的监听器
+     */
+    protected fun handlePermissions(permissions: Array<String>?, listener: PermissionListener) {
+        if (permissions == null || activity == null) {
+            return
+        }
+        mListener = listener
+        val requestPermissionList = ArrayList<String>()
+        for (permission in permissions) {
+            if (ContextCompat.checkSelfPermission(activity!!, permission) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissionList.add(permission)
+            }
+        }
+        if (!requestPermissionList.isEmpty()) {
+            requestPermissions(requestPermissionList.toTypedArray(), 1)
+        } else {
+            listener.onGranted()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            1 -> if (grantResults.isNotEmpty()) {
+                val deniedPermissions = ArrayList<String>()
+                for (i in grantResults.indices) {
+                    val grantResult = grantResults[i]
+                    val permission = permissions[i]
+                    if (grantResult != PackageManager.PERMISSION_GRANTED) {
+                        deniedPermissions.add(permission)
+                    }
+                }
+                if (deniedPermissions.isEmpty()) {
+                    mListener?.onGranted()
+                } else {
+                    mListener?.onDenied(deniedPermissions)
+                }
+            }
+            else -> {
+            }
+        }
+    }
+
 
 }

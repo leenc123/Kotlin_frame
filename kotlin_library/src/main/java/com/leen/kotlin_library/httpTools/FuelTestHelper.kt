@@ -49,6 +49,9 @@ object FuelTestHelper {
                         logging.append("\n-----${it.first}=${it.second}")
                     }
                 }
+                else->{
+
+                }
             }
             L.d(logging.toString())
             next(r)

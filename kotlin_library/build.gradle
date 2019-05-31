@@ -32,6 +32,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 // 基础依赖包，必须要依赖
     api 'com.gyf.immersionbar:immersionbar:3.0.0-beta03'
 // fragment快速实现（可选）
@@ -55,6 +56,7 @@ dependencies {
     api 'com.lxj:xpopup:1.7.9-x'
     //第三方Lib中的多函数接口
     api "com.cysion:targetfun:1.1.0"
+    api 'org.greenrobot:eventbus:3.0.0'
 
 }
 repositories {

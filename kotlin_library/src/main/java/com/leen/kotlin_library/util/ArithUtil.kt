@@ -28,6 +28,7 @@ object ArithUtil {
     fun sub(value1: Double, value2: Double): Double {
         val b1 = BigDecimal.valueOf(value1)
         val b2 = BigDecimal.valueOf(value2)
+        println("aaaaa")
         return b1.subtract(b2).toDouble()
     }
 

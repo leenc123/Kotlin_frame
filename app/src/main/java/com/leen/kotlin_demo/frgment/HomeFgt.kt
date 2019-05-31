@@ -1,5 +1,6 @@
 package com.leen.kotlin_demo.frgment
 
+import android.Manifest
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.leen.kotlin_demo.R
 import com.leen.kotlin_library.base.BaseFgt
+import com.leen.kotlin_library.event.ForceToLoginEvent
+import com.leen.kotlin_library.helper.PermissionListener
 import com.leen.kotlin_library.util.AppManager
 import com.leen.kotlin_library.util.L
 import kotlinx.android.synthetic.main.fgt_home.*
@@ -14,6 +17,7 @@ import com.lxj.xpopup.interfaces.OnConfirmListener
 import com.lxj.xpopup.XPopup
 import com.lxj.xpopup.core.CenterPopupView
 import com.lxj.xpopup.enums.PopupAnimation
+import org.greenrobot.eventbus.EventBus
 
 
 /**
@@ -48,6 +52,21 @@ class HomeFgt :BaseFgt() {
             R.id.btn_bb->{
                 changeListener("哈哈哈","呵呵呵")
             }
+            R.id.btn_login->{
+                val event = ForceToLoginEvent()
+                EventBus.getDefault().post(event)
+            }
+            R.id.btn_write->{
+                handlePermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), object : PermissionListener {
+                    override fun onGranted() {
+                        showToast("读写权限被授权")
+                    }
+
+                    override fun onDenied(deniedPermissions: List<String>) {
+                        showToast("读写权限被拒绝")
+                    }
+                })
+            }
         }
     }
 
@@ -69,10 +88,13 @@ class HomeFgt :BaseFgt() {
         super.onLazyInitView(savedInstanceState)
         tv_finish.setOnClickListener {
             AppManager.instance.killAllActivity()
+//            ActivityCollector.finishAll()
         }
         btn_done_dialog.setOnClickListener(this)
         btn_base_dialog.setOnClickListener(this)
         btn_bb.setOnClickListener(this)
+        btn_login.setOnClickListener(this)
+        btn_write.setOnClickListener(this)
         L.e("home")
     }
     class CustomPopup(context: Context) : CenterPopupView(context) {

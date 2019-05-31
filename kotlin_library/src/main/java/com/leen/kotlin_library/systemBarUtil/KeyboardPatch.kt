@@ -20,7 +20,7 @@ class KeyboardPatch private constructor(
     private val mActivity: Activity,
     private val mContentView: View = mActivity.findViewById(android.R.id.content)
 ) {
-    private var mDecorView: View?=null
+    private var mDecorView: View? = null
     private var flag = false
 
     private val onGlobalLayoutListener = ViewTreeObserver.OnGlobalLayoutListener {

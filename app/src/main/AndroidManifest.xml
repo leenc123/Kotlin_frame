@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.leen.kotlin_demo">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
-        android:name=".application.WeApplication"
+            android:name=".application.WeApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -21,7 +22,7 @@
         <meta-data
                 android:name="notch.config"
                 android:value="portrait|landscape"/>
-        <activity android:name=".SplashAty"
+        <activity android:name=".init.SplashAty"
                   android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -29,8 +30,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".FragmentAty" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".FragmentAty"/>
+        <activity android:name=".MainActivity"
+                  android:launchMode="singleTask"/>
+        <!--登录-->
+        <activity android:name=".user.LoginAty"/>
     </application>
 
 </manifest>

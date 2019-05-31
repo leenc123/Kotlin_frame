@@ -27,6 +27,7 @@ class MainActivity : BaseAty() {
         KeyboardPatch.patch(this, rel_statusBar)
         tv_fragment.setOnClickListener(this)
         tv_http_get.setOnClickListener(this)
+        setSwipeBackEnable(false) // 首页禁止手势滑动
     }
 
     override fun initData() {
