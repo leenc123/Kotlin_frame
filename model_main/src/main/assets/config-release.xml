@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+    <config>
+        <baseUrl>http://47.97.19.73:8081/</baseUrl>
+        <timeoutInMillisecond>20000</timeoutInMillisecond>
+    </config>
+
+</Config>

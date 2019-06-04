@@ -57,6 +57,7 @@ dependencies {
     //第三方Lib中的多函数接口
     api "com.cysion:targetfun:1.1.0"
     api 'org.greenrobot:eventbus:3.0.0'
+    api 'com.android.support:design:28.0.0'
 
 }
 repositories {

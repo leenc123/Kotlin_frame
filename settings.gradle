@@ -1,1 +1,1 @@
-include ':app', ':kotlin_library'
+include ':app', ':kotlin_library', ':model_main', ':model_mine'

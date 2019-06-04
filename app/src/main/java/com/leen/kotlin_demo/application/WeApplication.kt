@@ -1,6 +1,7 @@
 package com.leen.kotlin_demo.application
 
 import com.leen.kotlin_library.application.MyApplication
+import com.sjtu.yifei.route.Routerfit
 
 /**
  * @author
@@ -10,7 +11,10 @@ import com.leen.kotlin_library.application.MyApplication
  *
  */
 class WeApplication :MyApplication() {
+    val isDebug=true
     override fun onCreate() {
         super.onCreate()
+        //在你的application onCreate()方法中
+        Routerfit.init(this)
     }
 }

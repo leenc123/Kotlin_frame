@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="主页"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/tv_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="结束所有activity"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_done_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定取消弹框" />
+
+    <Button
+        android:id="@+id/btn_base_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义popupwindow" />
+    <Button
+            android:id="@+id/btn_bb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="闭包代替回调" />
+    <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转登录页" />
+    <Button
+            android:id="@+id/btn_write"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取读写权限" />
+    <Button
+            android:id="@+id/btn_get"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="碎片get请求" />
+
+</LinearLayout>

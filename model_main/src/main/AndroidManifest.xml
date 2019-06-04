@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.leen.model_mine">
+    <application>
+        <activity android:name=".init.SplashAty"
+                  android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".home.FragmentAty"/>
+        <activity android:name="com.leen.model_main.home.MainActivity"
+                  android:launchMode="singleTask"/>
+    </application>
+</manifest>

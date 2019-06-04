@@ -78,4 +78,6 @@
  -dontwarn com.gyf.immersionbar.**
  -dontwarn com.lxj.xpopup.widget.**
  -keep class com.lxj.xpopup.widget.**{*;}
+ -keep class * implements com.sjtu.yifei.ioc.**{*;}
+ -keep class * implements com.sjtu.yifei.annotation.InjectContract{*;}
 
