@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.leen.model_mine">
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application>
         <activity android:name=".init.SplashAty"
                   android:theme="@style/SplashTheme">
@@ -12,5 +13,6 @@
         <activity android:name=".home.FragmentAty"/>
         <activity android:name="com.leen.model_main.home.MainActivity"
                   android:launchMode="singleTask"/>
+        <service android:name=".service.MyService"/>
     </application>
 </manifest>

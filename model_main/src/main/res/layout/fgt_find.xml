@@ -1,35 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#ffffff"
-    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <FrameLayout
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/Scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_recyclerindexview_data"
-            android:overScrollMode="never"
-            android:scrollbars="none"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-        <TextView
-            android:id="@+id/tv_recyclerindexview_tip"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:background="@drawable/shape_tip"
-            android:gravity="center"
-            android:text="A"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:visibility="gone"
-            tools:visibility="visible"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"></com.youth.banner.Banner>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="第一项"/>
+                <TextView
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="第二项"/>
+                <TextView
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="第三项"/>
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_user"
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"></android.support.v7.widget.RecyclerView>
+        </LinearLayout>
 
-    </FrameLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

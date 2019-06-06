@@ -49,22 +49,22 @@ abstract class BaseFgt :SwipeBackFragment(), View.OnClickListener, HttpListener 
     }
 
     fun initImmersionBar(statusColor:Int) {
-        immersionBar {
-            statusBarColor(statusColor)
-            navigationBarColor(R.color.colorPrimary)//设置导航栏颜色
-            autoStatusBarDarkModeEnable(true,0.2f)//自动设定状态栏字体颜色
-            keyboardEnable(true)//解决软键盘与底部输入框冲突问题
-        }
+//        immersionBar {
+//            statusBarColor(statusColor)
+//            navigationBarColor(R.color.colorPrimary)//设置导航栏颜色
+//            autoStatusBarDarkModeEnable(true,0.2f)//自动设定状态栏字体颜色
+//            keyboardEnable(true)//解决软键盘与底部输入框冲突问题
+//        }
     }
 
     override fun onSupportVisible() {
         super.onSupportVisible()
-        immersionBar {
-            statusBarColor(R.color.colortransparent)
-            navigationBarColor(R.color.colorPrimary)//设置导航栏颜色
-            autoStatusBarDarkModeEnable(true,0.2f)//自动设定状态栏字体颜色
-            keyboardEnable(true)//解决软键盘与底部输入框冲突问题
-        }
+//        immersionBar {
+//            statusBarColor(R.color.colortransparent)
+//            navigationBarColor(R.color.colorPrimary)//设置导航栏颜色
+//            autoStatusBarDarkModeEnable(true,0.2f)//自动设定状态栏字体颜色
+//            keyboardEnable(true)//解决软键盘与底部输入框冲突问题
+//        }
     }
     override fun onFailure(requestUrl: String) {
         showToast("服务器错误，请稍候重试")
